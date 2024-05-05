@@ -1,16 +1,11 @@
-#[derive(Debug)]
-struct Rectangle {
-    width: u32,
-    height: u32,
-}
-
 fn main() {
-    let mut list = [
-        Rectangle { width: 10, height: 1 },
-        Rectangle { width: 3, height: 5 },
-        Rectangle { width: 7, height: 12 },
-    ];
+    let mut s = String::from("hello");
 
-    list.sort_by_key(|r| r.width);
-    println!("{:#?}", list);
+    let r1: &mut String = &mut s;
+    r1.push_str("fff");
+    
+    println!("{}, {}", r1, r1);
+    let r2: &mut String = &mut s;
+    println!("{}, {}", r2, r2);
+
 }
