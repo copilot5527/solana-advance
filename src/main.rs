@@ -1,10 +1,14 @@
-use solana_advance::Post;
+use std::fmt;
+
+struct Wrapper(Vec<String>);
+
+impl fmt::Display for Wrapper {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "[{}]", self.0.join(", "))
+    }
+}
 
 fn main() {
-    let mut post = Post::new();
-    post.add_text("I ate a salad for lunch today");
-    let post = post.request_review();
-    let post = post.approve();
-    println!("{}", post.content());
-    assert_eq!("I ate a salad for lunch today", post.content());
+    let w = Wrapper(vec![String::from("hello"), String::from("world")]);
+    println!("w = {}", w);
 }
